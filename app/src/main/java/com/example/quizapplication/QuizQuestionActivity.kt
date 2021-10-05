@@ -17,6 +17,7 @@ class QuizQuestionActivity : AppCompatActivity() , View.OnClickListener {
     private var mCurrentPosition: Int = 1
     private var mQuestionList :ArrayList<Question>? = null
     private var mSelectedOptionPosition: Int = 0
+    private var mCorrectAnswer: Int =0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,6 +118,9 @@ class QuizQuestionActivity : AppCompatActivity() , View.OnClickListener {
                     val question = mQuestionList?.get(mCurrentPosition -1)
                     if(question!!.correctAnswer != mSelectedOptionPosition){
                         answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
+                    }
+                    else{
+                        mCorrectAnswer++
                     }
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
 
